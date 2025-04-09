@@ -1,0 +1,107 @@
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean keepRunning = true;
+
+        System.out.println("===== Java Calculator =====");
+
+        while (keepRunning) {
+            System.out.println("\nChoose an operation:");
+            System.out.println("1. Addition (+)");
+            System.out.println("2. Subtraction (-)");
+            System.out.println("3. Multiplication (*)");
+            System.out.println("4. Division (/)");
+            System.out.println("5. Modulus (%)");
+            System.out.println("6. Power (^)");
+            System.out.println("7. Square Root (√)");
+            System.out.println("8. Exit");
+            System.out.print("Enter your choice (1-8): ");
+
+            int choice = scanner.nextInt();
+            double num1, num2, result;
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 + num2;
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 2:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 - num2;
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 3:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 * num2;
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 4:
+                    System.out.print("Enter numerator: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter denominator: ");
+                    num2 = scanner.nextDouble();
+                    if (num2 == 0) {
+                        System.out.println("Error: Cannot divide by zero!");
+                    } else {
+                        result = num1 / num2;
+                        System.out.println("Result: " + result);
+                    }
+                    break;
+
+                case 5:
+                    System.out.print("Enter first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    num2 = scanner.nextDouble();
+                    result = num1 % num2;
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 6:
+                    System.out.print("Enter base number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter exponent: ");
+                    num2 = scanner.nextDouble();
+                    result = Math.pow(num1, num2);
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 7:
+                    System.out.print("Enter number to find square root: ");
+                    num1 = scanner.nextDouble();
+                    if (num1 < 0) {
+                        System.out.println("Error: Cannot calculate square root of a negative number.");
+                    } else {
+                        result = Math.sqrt(num1);
+                        System.out.println("Result: " + result);
+                    }
+                    break;
+
+                case 8:
+                    keepRunning = false;
+                    System.out.println("Exiting Calculator");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 8.");
+            }
+        }
+
+        scanner.close();
+    }
+}
